@@ -47,3 +47,8 @@ app.get('/results/:id', (req, res) => {
   if (!entry) return res.status(404).json({ error: 'Non trouvé' });
   res.json(entry);
 });
+
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Service persistance démarré sur le port ${PORT}`);
+});
