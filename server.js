@@ -22,4 +22,15 @@ app.post('/results', (req, res) => {
   if (!body || Object.keys(body).length === 0) {
     return res.status(400).json({ error: 'la requête est vide' });
   }
+const data = readData();
+  const newEntry = {
+    id: Date.now().toString(),
+    timestamp: new Date().toISOString(),
+    ...body
+  };
+data.push(newEntry);
+  writeData(data);
+
+  res.status(201).json({ message: 'Résultat sauvegardé', entry: newEntry });
+});
 
