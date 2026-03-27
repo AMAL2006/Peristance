@@ -13,5 +13,8 @@ function readData() {
   return JSON.parse(raw);
 }
 
+function writeData(data) {
+  fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
+}
 
 
