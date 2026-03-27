@@ -17,4 +17,9 @@ function writeData(data) {
   fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
 }
 
+app.post('/results', (req, res) => {
+  const body = req.body;
+  if (!body || Object.keys(body).length === 0) {
+    return res.status(400).json({ error: 'la requête est vide' });
+  }
 
