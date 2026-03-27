@@ -34,3 +34,16 @@ data.push(newEntry);
   res.status(201).json({ message: 'Résultat sauvegardé', entry: newEntry });
 });
 
+app.get('/results/:id', (req, res) => {
+  const data = readData();
+  const entry = data.find(e => e.id === req.params.id);
+  if (!entry) return res.status(404).json({ error: 'Non trouvé' });
+  res.json(entry);
+});
+
+app.get('/results/:id', (req, res) => {
+  const data = readData();
+  const entry = data.find(e => e.id === req.params.id);
+  if (!entry) return res.status(404).json({ error: 'Non trouvé' });
+  res.json(entry);
+});
